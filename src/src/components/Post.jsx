@@ -3,13 +3,14 @@ import ptBR from 'date-fns/locale/pt-BR'
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
-export function Post({author, publishedAt}) { 
+export function Post({author, publishedAt, content}) { 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
   });
 
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBR,
+    addSuffix:true,
 
   })
   return (
@@ -23,27 +24,19 @@ export function Post({author, publishedAt}) {
           </div>
         </div>
 
-        <time title={publishedDateFormatted} dateTime="2022-07-29">  
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>  
           {publishedDateRelativeToNow }        
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Fala pessoal 👋</p>
-        <p>
-          Finalmente finalizei meu novo site/portfólio. Foi um baita desafio
-          criar todo o design e codar na unha, mas consegui 💪🏻{" "}
-        </p>
-        <p> Acesse e deixe seu feedback</p>
-        <p>
-          {""}
-          <a href="#">devonlane.design</a>
-        </p>
-        <p>
-          <a href="#">#uiux #userexperience</a>
-          {""}
-          <a href="#">#uiux #userexperience</a>
-        </p>
+        {content.map(line => {
+          if(line.type === 'paragraph') {
+            return <p>{line.content}</p>;
+          } else if(line.type === 'link') {
+            return <p><a href="#">{line.content}</a></p>;
+          }
+        })}
       </div>
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>

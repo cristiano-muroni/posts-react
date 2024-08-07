@@ -28,8 +28,8 @@ const posts = [
       role: 'UX Design' 
     },
     content: [
-      {type: 'paragraph', content: 'Fala pessoal 👋'},
-      {type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio. criar todo o design e codar na unha, mas consegui 💪🏻'},
+      {type: 'paragraph', content: 'Fala galera 🛸🚀'},
+      {type: 'paragraph', content: 'Finalizei meu novo site. Foi desafiador. O design e o código ficou muito bom 💪🏻'},
       {type: 'paragraph', content: 'Acesse e deixe seu feedback'},
       {type: 'link', content: 'devonlane.design/doctorcare'},
     ],
