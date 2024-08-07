@@ -3,9 +3,6 @@ import { Post } from "./components/Post";
 import { Sidebar } from "./components/Sidebar";
 import "./global.css";
 import styles from "./App.module.css";
-//author: {avatar_url: "", name:"", role:""}
-//publishedAt: Date
-//content: String
 
 const posts = [
   {
